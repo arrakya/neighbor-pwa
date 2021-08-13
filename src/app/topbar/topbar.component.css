@@ -26,8 +26,8 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    height: 0px;
-    transition: height .5s ease-out;
+    height: 0vmin;
+    transition: all .5s ease-out;
 }
 
 #app-topbar > input[type="checkbox"] {
@@ -46,7 +46,7 @@
 }
 
 #app-topbar > input[type="checkbox"]:checked ~ ul {
-    height: 185px;    
+    height: 100vmax;    
 }
 
 #app-topbar > input[type="checkbox"]:checked ~ ul li {
