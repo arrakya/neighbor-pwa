@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons';
+import { MenuService } from '../application/menu.service';
+import { MenuModel } from '../application/menu.model'
 
 @Component({
   selector: 'app-topbar',
@@ -10,7 +12,11 @@ export class TopbarComponent implements OnInit {
 
   FaChevronCircleDown = faChevronCircleDown  
 
-  constructor() { }
+  Menus : MenuModel[];
+
+  constructor(menuService: MenuService) {     
+    this.Menus = menuService.getMenus()
+  }  
 
   ngOnInit(): void {
   }

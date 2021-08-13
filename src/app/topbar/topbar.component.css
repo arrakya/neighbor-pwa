@@ -38,6 +38,7 @@
 #app-topbar > label[for="app-topbar-toggle"] > fa-icon {        
     padding-top: 7px;
     transition: transform .5s ease-in-out;
+    transition-delay: .8s;
 }
 
 #app-topbar > input[type="checkbox"]:checked + label[for="app-topbar-toggle"] > fa-icon {        
@@ -57,10 +58,14 @@
 #app-topbar > ul > li {
     font-family: sans-serif;
     margin: 25px 15px;
-    opacity: 0;    
-    color: yellow;
+    opacity: 0;        
 }
 
 #app-topbar > ul > li:first-child {
     margin-top: 30px;
+}
+
+#app-topbar > ul > li.active {    
+    color: yellow;
+    font-weight: bold;
 }

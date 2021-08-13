@@ -5,8 +5,6 @@
         <fa-icon id="icon-hide" [icon]="FaChevronCircleDown"></fa-icon>        
     </label>    
     <ul>
-        <li>Home</li>
-        <li>Docs</li>
-        <li>Contact</li>
+        <li [ngClass]="menu.ClassValue" *ngFor="let menu of Menus">{{menu.Name}}</li>        
     </ul>
 </nav>
