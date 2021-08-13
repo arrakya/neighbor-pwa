@@ -26,7 +26,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    height: 0vmin;
+    height: 0vmin;    
     transition: all .5s ease-out;
 }
 
@@ -36,7 +36,7 @@
 }
 
 #app-topbar > label[for="app-topbar-toggle"] > fa-icon {        
-    padding-top: 7px;
+    padding-top: 0px;
     transition: transform .5s ease-in-out;
     transition-delay: .8s;
 }
@@ -47,19 +47,18 @@
 }
 
 #app-topbar > input[type="checkbox"]:checked ~ #app-topbar-menus {
-    height: 100vmax;    
+    height: 100vmax;  
 }
 
-#app-topbar > input[type="checkbox"]:checked ~ ul li {
-    opacity: 1;
-    transition: opacity 1s ease-in;
+#app-topbar > input[type="checkbox"]:checked ~ ul li {    
+    display: block;
 }
 
 #app-topbar > ul > li {
     font-family: sans-serif;
-    margin: 25px 15px;
-    opacity: 0;
+    margin: 25px 15px;    
     cursor: pointer;
+    display: none;
 }
 
 #app-topbar > ul > li:first-child {

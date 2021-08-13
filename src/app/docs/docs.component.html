@@ -1,1 +1,9 @@
-<p>docs works!</p>
+<div class="container">
+    <h1>Documents</h1>
+
+    <div class="explorer">
+        <div [ngClass]="doc.ClassValue" *ngFor="let doc of docsCollection">
+            <fa-icon [icon]="doc.Icon"></fa-icon>
+            <span>{{doc.Name}}</span> 
+        </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DocsModel } from './docs.model';
+import { DocsService } from './docs.service';
 
 @Component({
   selector: 'app-docs',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocsComponent implements OnInit {
 
-  constructor() { }
+  docsCollection: DocsModel[];
+
+  constructor(docsService: DocsService) { 
+    this.docsCollection = docsService.getDocuments();
+  }
 
   ngOnInit(): void {
   }

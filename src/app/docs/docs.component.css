@@ -1,0 +1,46 @@
+.explorer{
+    display: flex;    
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.explorer-item{    
+    display: grid;
+    grid-template-areas: 
+        "icon"
+        "name";
+    grid-template-rows: 1fr .5fr;
+    
+    margin: .5rem;
+    padding: .5rem;
+    width: 4.5rem;
+    border-radius: 4px;
+    justify-items: center;    
+    box-shadow: gray 2px 5px 5px;
+}
+
+.explorer-item > fa-icon {
+    grid-area: icon;
+    font-size: 2.5rem;    
+}
+
+.explorer-item > span {
+    grid-area: name;
+    margin-top: 2px;
+}
+
+.explorer-item.folder {    
+    border: green solid 1px;
+}
+
+.explorer-item.folder > fa-icon{
+    color: green;    
+}
+
+.explorer-item.file{ 
+    border: tomato solid 1px;
+}
+
+.explorer-item.file > fa-icon{
+    color:tomato;
+}

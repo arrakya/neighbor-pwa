@@ -1,0 +1,24 @@
+.card{
+    display: grid;
+    grid-template-areas: "title value measure";
+    grid-template-columns: .5fr .4fr .3fr;
+    padding: 1rem .5rem;
+}
+
+.card:first-of-type{
+    margin-top: 15px;
+}
+
+.card .title {
+    grid-area: title;    
+}
+
+.card .value {
+    grid-area: value;  
+    justify-self: end;  
+}
+
+.card .measure {
+    grid-area: measure;
+    justify-self: end;
+}
