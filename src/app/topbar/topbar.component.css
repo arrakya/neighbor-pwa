@@ -1,0 +1,66 @@
+#app-topbar {    
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 70%,darkblue 100%);
+    color:white;    
+    display: grid;
+    grid-template-areas: "title toggle";    
+    grid-template-columns: 1fr .1fr;
+    font-size: 6vw;
+    padding: .5rem .3rem .5rem .5rem;
+    box-shadow: black 0px 5px 20px;    
+}
+
+#app-topbar > label {    
+    grid-area: toggle;    
+    display: flex;
+    margin: auto;    
+}
+
+#app-topbar > span {    
+    font-family: sans-serif;    
+    grid-area: title;
+    align-self: center;
+    padding-top: 7px;    
+}
+
+#app-topbar > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 0px;
+    transition: height .5s ease-out;
+}
+
+#app-topbar > input[type="checkbox"] {
+    position: absolute;
+    visibility: hidden;
+}
+
+#app-topbar > label[for="app-topbar-toggle"] > fa-icon {        
+    padding-top: 7px;
+    transition: transform .5s ease-in-out;
+}
+
+#app-topbar > input[type="checkbox"]:checked + label[for="app-topbar-toggle"] > fa-icon {        
+    transform: rotate(180deg);  
+    color: yellow;  
+}
+
+#app-topbar > input[type="checkbox"]:checked ~ ul {
+    height: 185px;    
+}
+
+#app-topbar > input[type="checkbox"]:checked ~ ul li {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+}
+
+#app-topbar > ul > li {
+    font-family: sans-serif;
+    margin: 25px 15px;
+    opacity: 0;    
+    color: yellow;
+}
+
+#app-topbar > ul > li:first-child {
+    margin-top: 30px;
+}
