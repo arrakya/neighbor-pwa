@@ -1,10 +1,15 @@
 <nav id="app-topbar">    
     <span>GROOVE-VILLE</span>
-    <input type="checkbox" id="app-topbar-toggle" /> 
+    <input type="checkbox" id="app-topbar-toggle" 
+        #app_topbar_toggle
+        [checked]="isToggle" 
+        (change)="onToggleChange(app_topbar_toggle.checked)" /> 
     <label for="app-topbar-toggle">
         <fa-icon id="icon-hide" [icon]="FaChevronCircleDown"></fa-icon>        
     </label>    
-    <ul>
-        <li [ngClass]="menu.ClassValue" *ngFor="let menu of Menus">{{menu.Name}}</li>        
+    <ul id="app-topbar-menus">
+        <li [ngClass]="menu.ClassValue" *ngFor="let menu of Menus" (click)="onClickMenu(menu)">
+            {{menu.Name}}
+        </li>
     </ul>
 </nav>
