@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DocsModel } from './docs.model';
 import { DocsService } from './docs.service';
-import { faHome, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faList, faGripVertical, faHome, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-docs',
@@ -10,8 +10,11 @@ import { faHome, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 })
 export class DocsComponent implements OnInit {
 
+  FaCurrentView = faGripVertical;
   FaHome = faHome;
   FaArrowUp = faArrowUp;
+
+  CurrentViewClass = "explorer list";
 
   DocsCollection: DocsModel[];
 
@@ -33,6 +36,16 @@ export class DocsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onClickChangeViewIcon(){
+    if(this.CurrentViewClass == "explorer icon"){
+      this.CurrentViewClass = "explorer list";
+      this.FaCurrentView = faList;
+    }else{
+      this.CurrentViewClass = "explorer icon"
+      this.FaCurrentView = faGripVertical;
+    }
   }
 
   concatPathString(){

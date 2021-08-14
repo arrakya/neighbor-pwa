@@ -1,20 +1,23 @@
 <div class="container">
-    <h1>Documents</h1>
+    <h1>
+        Documents
+        <fa-icon class="view-icon" [icon]="FaCurrentView" (click)="onClickChangeViewIcon()"></fa-icon>
+    </h1>
 
     <p id="explore-path">
         {{PathString}}<span style="font-weight: bold;">{{PathCurrent?.Name}}</span>
         &nbsp;<fa-icon [icon]="FaHome"></fa-icon>
     </p>
 
-    <div class="explorer">
+    <div [ngClass]="CurrentViewClass">
         <div *ngIf="IsShowGoBackItem" class="explorer-item folder-up" (click)="onClickGoBackItem()">
-            <fa-icon [icon]="FaArrowUp"></fa-icon>
+            <fa-icon class="icon" [icon]="FaArrowUp"></fa-icon>
             <span class="title">..</span>
             <span class="subtitle">Go Back</span>
         </div>
 
         <div [ngClass]="doc.ClassValue" *ngFor="let doc of DocsCollection" (click)="onClickExploreItem(doc)">
-            <fa-icon [icon]="doc.Icon"></fa-icon>
+            <fa-icon class="icon" [icon]="doc.Icon"></fa-icon>
             <span class="title">{{doc.Name}}</span>
             <span class="subtitle">01 jan 21</span>
         </div>

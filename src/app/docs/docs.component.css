@@ -2,6 +2,13 @@
     overflow: hidden;
 }
 
+.view-icon{
+    font-size: 1.3rem;
+    float:right;
+    padding-top: 8px;
+    color: blue;
+}
+
 #explore-path {
     background-color: lightgray;
     padding: .5rem;
@@ -20,11 +27,39 @@
     margin-top: 10px;
 }
 
+/* begin list view */
+
+.explorer.list .explorer-item {
+    width: 100%;
+    display: grid;    
+    grid-template-areas: 
+        "icon title"
+        "subtitle subtitle";
+    grid-template-columns: .4fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.explorer.list .explorer-item .title {
+    text-align: left;   
+}
+
+.explorer.list .explorer-item .icon {
+    grid-row: 1/3;    
+}
+
+.explorer.list .explorer-item .subtitle {    
+    grid-column: 2/3;
+    text-align: left;
+}
+
+/* end list view */
+
 .explorer-item{    
     display: grid;
     grid-template-areas: 
         "icon"
-        "name";
+        "title"
+        "subtitle";
     grid-template-rows: 1fr .5fr;
     
     margin: .5rem;
@@ -36,13 +71,13 @@
     cursor: pointer;
 }
 
-.explorer-item > fa-icon {
+.icon {
     grid-area: icon;
     font-size: 2rem;    
 }
 
-.explorer-item > .title {
-    grid-area: name;
+.title {
+    grid-area: title;
     margin-top: 2px;
     font-size: .8rem;
     text-align: center;
@@ -52,16 +87,19 @@
     text-overflow: "..";    
 }
 
-.explorer-item > .subtitle {
+.subtitle {
+    grid-area: subtitle;
     font-size: .7rem;
     filter: opacity(.5);
+    width: inherit;
+    text-align: center;
 }
 
 .explorer-item.folder {    
     border: green solid 1px;
 }
 
-.explorer-item.folder > fa-icon{
+.explorer-item.folder > .icon{
     color: green;    
 }
 
