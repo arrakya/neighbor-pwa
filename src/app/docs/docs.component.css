@@ -1,3 +1,19 @@
+.container {
+    overflow: hidden;
+}
+
+#explore-path {
+    background-color: lightgray;
+    padding: .5rem;
+    border-radius: 7px;
+    filter: opacity(.5);        
+    white-space: nowrap;
+    overflow: hidden;     
+    text-overflow: "..";
+    direction: rtl;  
+    text-align: left;  
+}
+
 .explorer{
     display: flex;    
     flex-wrap: wrap;
@@ -17,16 +33,28 @@
     border-radius: 4px;
     justify-items: center;    
     box-shadow: gray 2px 5px 5px;
+    cursor: pointer;
 }
 
 .explorer-item > fa-icon {
     grid-area: icon;
-    font-size: 2.5rem;    
+    font-size: 2rem;    
 }
 
-.explorer-item > span {
+.explorer-item > .title {
     grid-area: name;
     margin-top: 2px;
+    font-size: .8rem;
+    text-align: center;
+    width: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: "..";    
+}
+
+.explorer-item > .subtitle {
+    font-size: .7rem;
+    filter: opacity(.5);
 }
 
 .explorer-item.folder {    
@@ -43,4 +71,12 @@
 
 .explorer-item.file > fa-icon{
     color:tomato;
+}
+
+.explorer-item.folder-up {    
+    border: gray solid 1px;
+}
+
+.explorer-item.folder-up > fa-icon{
+    color: gray;    
 }
