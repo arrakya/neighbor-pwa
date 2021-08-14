@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DocsModel } from './docs.model';
-import { faFileWord, faFileInvoice } from '@fortawesome/free-solid-svg-icons';
+import { faFolder, faFileInvoice, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import mock from './docs.mock-data.json';
 
 @Injectable({
   providedIn: 'root'
@@ -9,32 +10,81 @@ export class DocsService {
 
   constructor() { }
 
-  getDocuments(){
-    let docs = [
-      new DocsModel(1, "Folder with very very long name", faFileWord, "explorer-item folder"),
-      new DocsModel(2, "Folder 2", faFileWord, "explorer-item folder"),
-      new DocsModel(3, "Folder 3", faFileWord, "explorer-item folder"),
-      new DocsModel(4, "Folder 4", faFileWord, "explorer-item folder"),
-      new DocsModel(5, "Folder 5", faFileWord, "explorer-item folder"),
-      new DocsModel(6, "Folder 6", faFileWord, "explorer-item folder"),
-      new DocsModel(7, "Folder 7", faFileWord, "explorer-item folder"),
-      new DocsModel(8, "Folder 8", faFileWord, "explorer-item folder"),
-      new DocsModel(9, "Folder 9", faFileWord, "explorer-item folder"),
-      new DocsModel(10, "Folder 10", faFileWord, "explorer-item folder"),
-      new DocsModel(11, "Folder 11", faFileWord, "explorer-item folder"),
-      new DocsModel(12, "Folder 12", faFileWord, "explorer-item folder"),
-      new DocsModel(13, "File with very long long name", faFileInvoice, "explorer-item file"),
-      new DocsModel(14, "File 2", faFileInvoice, "explorer-item file"),
-      new DocsModel(15, "File 3", faFileInvoice, "explorer-item file"),
-      new DocsModel(16, "File 4", faFileInvoice, "explorer-item file"),
-      new DocsModel(17, "File 5", faFileInvoice, "explorer-item file"),
-      new DocsModel(18, "File 6", faFileInvoice, "explorer-item file"),
-      new DocsModel(19, "File 7", faFileInvoice, "explorer-item file"),
-      new DocsModel(20, "File 8", faFileInvoice, "explorer-item file"),
-      new DocsModel(21, "File 9", faFileInvoice, "explorer-item file"),
-      new DocsModel(22, "File 10", faFileInvoice, "explorer-item file")
-    ] 
+  getDocumentsFromId(docId:string|null){
+    let documentCollections: DocsModel[] = [];
+    let workingDocs = mock.docs;
+    
+    if(docId != null){
+      workingDocs = this.getDocumentChildFromDocId(docId!);
+      console.log(workingDocs);
+    }
 
-    return docs;
+    for(let i = 0; i < workingDocs.length; i++){
+
+      let classValue: string;
+      let docIcon: IconDefinition;
+
+      if(workingDocs[i].Type == "Folder"){
+        docIcon = faFolder;
+        classValue = "explorer-item folder";
+      }else{
+        docIcon = faFileInvoice;
+        classValue = "explorer-item file";
+      }
+
+      documentCollections.push(
+        new DocsModel(
+          workingDocs[i].Id, 
+          workingDocs[i].Name,           
+          docIcon,
+          classValue,
+          workingDocs[i].Type)
+        );
+    }
+
+    return documentCollections.sort((a_doc, b_doc) => {
+      if(a_doc.Name < b_doc.Name){
+        return -1;
+      }if(a_doc.Name > b_doc.Name) {
+        return 1;
+      }else{
+        return 0;
+      }
+    });
+  }
+
+  getDocumentChildFromDocId(docId:string) : any[]{
+    let matchedId = false;
+    let mockDocs = mock.docs;
+    let cDocs : any[] = [];
+    let docIndex = 0;
+    let docIds = docId.split(".");
+
+    for(let i = 0; i < docIds.length; i++){        
+      while(matchedId == false){
+        let lookupId = docIds[i];
+        if(i != 0){
+          lookupId = docIds.slice(0, i+1).join(".");
+        }
+
+        matchedId = mockDocs[docIndex].Id == lookupId;
+
+        if(matchedId){
+          cDocs = mockDocs[docIndex].cdocs;          
+
+          if((i + 1) != docIds.length){
+            mockDocs = cDocs;
+            docIndex = -1;
+            matchedId = false;
+
+            i++;
+          }          
+        }
+
+        docIndex++;            
+      }
+    }
+
+    return cDocs;  
   }
 }

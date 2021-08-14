@@ -15,16 +15,19 @@ export class DocsComponent implements OnInit {
 
   DocsCollection: DocsModel[];
 
-  PathCollection : string[];
+  PathCollection : DocsModel[];
 
   PathString = "";
 
-  PathCurrent = "";
+  PathCurrent?: DocsModel|null;
 
   IsShowGoBackItem = false;
 
+  docsService: DocsService;  
+
   constructor(docsService: DocsService) { 
-    this.DocsCollection = docsService.getDocuments();
+    this.docsService = docsService;
+    this.DocsCollection = docsService.getDocumentsFromId(null);
 
     this.PathCollection = [];       
   }
@@ -34,21 +37,25 @@ export class DocsComponent implements OnInit {
 
   concatPathString(){
     this.PathString = "";
-    this.PathCurrent = "";
+    this.PathCurrent = null;
     if(this.PathCollection.length > 1){
       for(let i = 0; i < (this.PathCollection.length - 1); i++){    
-        this.PathString += this.PathCollection[i];
+        this.PathString += this.PathCollection[i].Name;
         this.PathString += " / ";
       }    
     }
 
-    this.PathCurrent = this.PathCollection[this.PathCollection.length - 1];
+    this.PathCurrent = this.PathCollection[this.PathCollection.length - 1];    
   }
 
   onClickExploreItem(document: DocsModel){
-    this.PathCollection[this.PathCollection.length] = document.Name;
-    this.concatPathString();
-    this.setShowGoBackItem();    
+    if(document.Type == "Folder"){
+      this.PathCollection[this.PathCollection.length] = document;
+      this.concatPathString();
+      this.setShowGoBackItem();
+    
+      this.DocsCollection = this.docsService.getDocumentsFromId(document.Id);
+    }
   }
 
   setShowGoBackItem(){
@@ -59,6 +66,13 @@ export class DocsComponent implements OnInit {
     this.PathCollection.pop();
     this.concatPathString();
     this.setShowGoBackItem();
-    console.log(this.PathCollection);
+    
+    if(this.PathCollection.length == 0){
+      this.DocsCollection = this.docsService.getDocumentsFromId(null);  
+      return;
+    }
+
+    let previousDocId = this.PathCollection[this.PathCollection.length - 1].Id;
+    this.DocsCollection = this.docsService.getDocumentsFromId(previousDocId);
   }
 }
