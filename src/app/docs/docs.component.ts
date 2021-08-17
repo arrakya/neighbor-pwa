@@ -30,7 +30,10 @@ export class DocsComponent implements OnInit {
 
   constructor(docsService: DocsService) { 
     this.docsService = docsService;
-    this.DocsCollection = docsService.getDocumentsFromId(null);
+
+    let docs = docsService.getChildDocuments(null);
+    this.PathCurrent = docs[0]
+    this.DocsCollection = docsService.getChildDocuments(this.PathCurrent);
 
     this.PathCollection = [];       
   }
@@ -52,7 +55,7 @@ export class DocsComponent implements OnInit {
     this.PathString = "";
     this.PathCurrent = null;
     if(this.PathCollection.length > 1){
-      for(let i = 0; i < (this.PathCollection.length - 1); i++){    
+      for(let i = 0; i < (this.PathCollection.length - 1); i++){  
         this.PathString += this.PathCollection[i].Name;
         this.PathString += " / ";
       }    
@@ -62,30 +65,35 @@ export class DocsComponent implements OnInit {
   }
 
   onClickExploreItem(document: DocsModel){
-    if(document.Type == "Folder"){
+    if(document.Type == "directory"){
       this.PathCollection[this.PathCollection.length] = document;
-      this.concatPathString();
+      this.concatPathString();      
+      
+      this.PathCurrent = document;
+      this.DocsCollection = this.docsService.getChildDocuments(document);
+
       this.setShowGoBackItem();
-    
-      this.DocsCollection = this.docsService.getDocumentsFromId(document.Id);
     }
   }
 
   setShowGoBackItem(){
-    this.IsShowGoBackItem = this.PathCollection.length > 0;
+    this.IsShowGoBackItem = this.PathCurrent?.Parent != null;
   }
 
   onClickGoBackItem(){    
-    this.PathCollection.pop();
-    this.concatPathString();
-    this.setShowGoBackItem();
+
+    let parentDocs = this.PathCurrent?.Parent;
     
-    if(this.PathCollection.length == 0){
-      this.DocsCollection = this.docsService.getDocumentsFromId(null);  
+    if (parentDocs == null){
       return;
     }
 
-    let previousDocId = this.PathCollection[this.PathCollection.length - 1].Id;
-    this.DocsCollection = this.docsService.getDocumentsFromId(previousDocId);
+    this.DocsCollection = this.docsService.getChildDocuments(parentDocs);
+    this.PathCurrent = parentDocs;
+
+    this.setShowGoBackItem();
+
+    this.PathCollection.pop();
+    this.concatPathString();
   }
 }

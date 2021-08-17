@@ -1,198 +1,59 @@
-{
-    "docs": [
-        {
-            "Id": "1",
-            "Name": "Contract",
-            "Type": "Folder",
-            "cdocs": [
-                {
-                    "Id": "1.1",
-                    "Name": "service_contract_with_p_and_d_associates-1.png",
-                    "Type": "File"
-                },
-                {
-                    "Id": "1.2",
-                    "Name": "service_contract_with_p_and_d_associates-2.png",
-                    "Type": "File"
-                },
-                {
-                    "Id": "1.3",
-                    "Name": "service_contract_with_p_and_d_associates-3.png",
-                    "Type": "File"
-                },
-                {
-                    "Id": "1.4",
-                    "Name": "service_contract_with_p_and_d_associates-copy.pdf",
-                    "Type": "File"
-                },
-                {
-                    "Id": "1.5",
-                    "Name": "service_contract_with_p_and_d_associates-master.pdf",
-                    "Type": "File"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Name": "Invoice",
-            "Type": "Folder",
-            "cdocs": [
-                {
-                    "Id": "2.1",
-                    "Name": "p_and_d_associates_iv6408001_640802.pdf",
-                    "Type": "File"
-                },
-                {
-                    "Id": "2.2",
-                    "Name": "p_and_d_associates_iv6408001_640802-1.png",
-                    "Type": "File"
-                },
-                {
-                    "Id": "2.3",
-                    "Name": "p_and_d_associates_iv6408001_640802-2.png",
-                    "Type": "File"
-                }
-            ]
-        },
-        {
-            "Id": "3",
-            "Name": "letter_of_concent",
-            "Type": "Folder",
-            "cdocs": [
-                {
-                    "Id": "3.1",
-                    "Name": "letter_of_concent_for_pay_invoice_p_and_d_accessociates.odt",
-                    "Type": "File"
-                },
-                {
-                    "Id": "3.2",
-                    "Name": "letter_of_concent_for_pay_invoice_p_and_d_accessociates.pdf",
-                    "Type": "File"
-                },
-                {
-                    "Id": "3.3",
-                    "Name": "letter_of_concent_for_pay_invoice_p_and_d_accessociates-arrak.png",
-                    "Type": "File"
-                },
-                {
-                    "Id": "3.4",
-                    "Name": "letter_of_concent_for_pay_invoice_p_and_d_accessociates-kanjana.png",
-                    "Type": "File"
-                },
-                {
-                    "Id": "3.5",
-                    "Name": "letter_of_concent_for_pay_invoice_p_and_d_accessociates-nikhom.png",
-                    "Type": "File"
-                },
-                {
-                    "Id": "3.6",
-                    "Name": "letter_of_concent_for_pay_invoice_p_and_d_accessociates-nin.png",
-                    "Type": "File"
-                },
-                {
-                    "Id": "3.7",
-                    "Name": "letter_of_concent_for_pay_invoice_p_and_d_accessociates-nubthong.png",
-                    "Type": "File"
-                },
-                {
-                    "Id": "3.8",
-                    "Name": "letter_of_concent_for_pay_invoice_p_and_d_accessociates-supahsand.png",
-                    "Type": "File"
-                }
-            ]
-        },
-        {
-            "Id": "4",
-            "Name": "management_company",
-            "Type": "Folder",
-            "cdocs": [
-                {
-                    "Id": "4.1",
-                    "Name": "offer",
-                    "Type": "Folder",
-                    "cdocs": [
-                        {
-                            "Id": "4.1.1",
-                            "Name": "compare.ods",
-                            "Type": "File"
-                        },
-                        {
-                            "Id": "4.1.2",
-                            "Name": "offer_accounting_opration_from_p_and_d_associates.pdf",
-                            "Type": "File"
-                        },
-                        {
-                            "Id": "4.1.3",
-                            "Name": "offer_management_prices_from_first_pacific_harison.pdf",
-                            "Type": "File"
-                        },
-                        {
-                            "Id": "4.1.4",
-                            "Name": "offer_management_prices_from_master_group.pdf",
-                            "Type": "File"
-                        },
-                        {
-                            "Id": "4.1.5",
-                            "Name": "offer_management_prices_from_qpm.pdf",
-                            "Type": "File"
-                        },
-                        {
-                            "Id": "4.1.6",
-                            "Name": "offer_management_profile_from_first_pacific_harison.pdf",
-                            "Type": "File"
-                        },
-                        {
-                            "Id": "4.1.7",
-                            "Name": "offer_management_profile_from_master_group.pdf",
-                            "Type": "File"
-                        },
-                        {
-                            "Id": "4.1.8",
-                            "Name": "offer_management_profile_from_qpm.pdf",
-                            "Type": "File"
-                        },
-                        {
-                            "Id": "4.1.9",
-                            "Name": "offer_management_reference_form_qpm.pdf",
-                            "Type": "File"
-                        },
-                        {
-                            "Id": "4.1.10",
-                            "Name": "TIPM",
-                            "Type": "Folder",
-                            "cdocs": [
-                                {
-                                    "Id": "4.1.10.1",
-                                    "Name": "TIPM Offer.pdf",
-                                    "Type": "File"
-                                },
-                                {
-                                    "Id": "4.1.10.2",
-                                    "Name": "TIPM Profile.pdf",
-                                    "Type": "File"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "Id": "4.2",
-                    "Name": "terminate",
-                    "Type": "Folder",
-                    "cdocs": [
-                        {
-                            "Id": "4.2.1",
-                            "Name": "notice_of_terminate_of_contract_with_dimond_property.odt",
-                            "Type": "File"
-                        },
-                        {
-                            "Id": "4.2.2",
-                            "Name": "notice_of_terminate_of_contract_with_dimond_property.pdf",
-                            "Type": "File"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-}
+[
+    {"type":"directory","name":"groove_ville","contents":[
+      {"type":"directory","name":"contract","contents":[
+        {"type":"file","name":"service_contract_with_p_and_d_associates-1.png"},
+        {"type":"file","name":"service_contract_with_p_and_d_associates-2.png"},
+        {"type":"file","name":"service_contract_with_p_and_d_associates-3.png"},
+        {"type":"file","name":"service_contract_with_p_and_d_associates-copy.pdf"},
+        {"type":"file","name":"service_contract_with_p_and_d_associates-master.pdf"}
+      ]},
+      {"type":"directory","name":"invoice","contents":[
+        {"type":"file","name":"p_and_d_associates_iv6408001_640802-1.png"},
+        {"type":"file","name":"p_and_d_associates_iv6408001_640802-2.png"},
+        {"type":"file","name":"p_and_d_associates_iv6408001_640802.pdf"}
+      ]},
+      {"type":"directory","name":"letter_of_concent","contents":[
+        {"type":"file","name":"letter_of_concent_for_pay_invoice_p_and_d_accessociates-arrak.png"},
+        {"type":"file","name":"letter_of_concent_for_pay_invoice_p_and_d_accessociates-kanjana.png"},
+        {"type":"file","name":"letter_of_concent_for_pay_invoice_p_and_d_accessociates-nikhom.png"},
+        {"type":"file","name":"letter_of_concent_for_pay_invoice_p_and_d_accessociates-nin.png"},
+        {"type":"file","name":"letter_of_concent_for_pay_invoice_p_and_d_accessociates-nubthong.png"},
+        {"type":"file","name":"letter_of_concent_for_pay_invoice_p_and_d_accessociates.odt"},
+        {"type":"file","name":"letter_of_concent_for_pay_invoice_p_and_d_accessociates.pdf"},
+        {"type":"file","name":"letter_of_concent_for_pay_invoice_p_and_d_accessociates-supahsand.png"}
+      ]},
+      {"type":"directory","name":"management_company","contents":[
+        {"type":"directory","name":"offer","contents":[
+          {"type":"file","name":"compare.ods"},
+          {"type":"directory","name":"First Pacific Harison","contents":[
+            {"type":"file","name":"offer_management_prices_from_first_pacific_harison.pdf"},
+            {"type":"file","name":"offer_management_profile_from_first_pacific_harison.pdf"}
+          ]},
+          {"type":"directory","name":"Master Group","contents":[
+            {"type":"file","name":"offer_management_prices_from_master_group.pdf"},
+            {"type":"file","name":"offer_management_profile_from_master_group.pdf"}
+          ]},
+          {"type":"directory","name":"MKS Management","contents":[
+            {"type":"file","name":"Offer.pdf"}
+          ]},
+          {"type":"directory","name":"P&amp;D Associates","contents":[
+            {"type":"file","name":"offer_accounting_opration_from_p_and_d_associates.pdf"}
+          ]},
+          {"type":"directory","name":"QPM","contents":[
+            {"type":"file","name":"offer_management_prices_from_qpm.pdf"},
+            {"type":"file","name":"offer_management_profile_from_qpm.pdf"},
+            {"type":"file","name":"offer_management_reference_form_qpm.pdf"}
+          ]},
+          {"type":"directory","name":"TIPM","contents":[
+            {"type":"file","name":"offer.pdf"}
+          ]}
+        ]},
+        {"type":"directory","name":"terminate","contents":[
+          {"type":"file","name":"notice_of_terminate_of_contract_with_dimond_property.odt"},
+          {"type":"file","name":"notice_of_terminate_of_contract_with_dimond_property.pdf"}
+        ]}
+      ]},
+      {"type":"file","name":"test.txt"}
+    ]},
+    {"type":"report","directories":12,"files":30}
+]

@@ -10,81 +10,49 @@ export class DocsService {
 
   constructor() { }
 
-  getDocumentsFromId(docId:string|null){
-    let documentCollections: DocsModel[] = [];
-    let workingDocs = mock.docs;
-    
-    if(docId != null){
-      workingDocs = this.getDocumentChildFromDocId(docId!);
-      console.log(workingDocs);
+  getChildDocuments(doc: any) {
+    let childDocs: any[] = [];
+    let docs: any[] = [];
+
+    if (!doc) {
+      docs = mock
+    }else{
+      docs = doc.RawChilds
     }
 
-    for(let i = 0; i < workingDocs.length; i++){
+    docs.forEach((item) => {
+
+      if (item.type == "report") {
+        return;
+      }
 
       let classValue: string;
       let docIcon: IconDefinition;
 
-      if(workingDocs[i].Type == "Folder"){
+      if (item.type == "directory") {
         docIcon = faFolder;
         classValue = "explorer-item folder";
-      }else{
+      } else {
         docIcon = faFileInvoice;
         classValue = "explorer-item file";
       }
 
-      documentCollections.push(
-        new DocsModel(
-          workingDocs[i].Id, 
-          workingDocs[i].Name,           
-          docIcon,
-          classValue,
-          workingDocs[i].Type)
-        );
-    }
+      let docName = item.name ? item.name : ""
 
-    return documentCollections.sort((a_doc, b_doc) => {
-      if(a_doc.Name < b_doc.Name){
-        return -1;
-      }if(a_doc.Name > b_doc.Name) {
-        return 1;
-      }else{
-        return 0;
+      if(docName == "groove_ville"){
+        docName = ""
       }
-    });
-  }
 
-  getDocumentChildFromDocId(docId:string) : any[]{
-    let matchedId = false;
-    let mockDocs = mock.docs;
-    let cDocs : any[] = [];
-    let docIndex = 0;
-    let docIds = docId.split(".");
+      childDocs.push(new DocsModel(
+        "",
+        docName,
+        docIcon,
+        classValue,
+        item.type,
+        item.contents,
+        doc))
+    })
 
-    for(let i = 0; i < docIds.length; i++){        
-      while(matchedId == false){
-        let lookupId = docIds[i];
-        if(i != 0){
-          lookupId = docIds.slice(0, i+1).join(".");
-        }
-
-        matchedId = mockDocs[docIndex].Id == lookupId;
-
-        if(matchedId){
-          cDocs = mockDocs[docIndex].cdocs;          
-
-          if((i + 1) != docIds.length){
-            mockDocs = cDocs;
-            docIndex = -1;
-            matchedId = false;
-
-            i++;
-          }          
-        }
-
-        docIndex++;            
-      }
-    }
-
-    return cDocs;  
-  }
+    return childDocs;
+  }  
 }
