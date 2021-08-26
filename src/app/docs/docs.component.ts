@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DocsModel } from './docs.model';
 import { DocsService } from './docs.service';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { faList, faGripVertical, faHome, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -30,15 +32,16 @@ export class DocsComponent implements OnInit {
 
   constructor(docsService: DocsService) { 
     this.docsService = docsService;
-
-    let docs = docsService.getChildDocuments(null);
-    this.PathCurrent = docs[0]
-    this.DocsCollection = docsService.getChildDocuments(this.PathCurrent);
-
+    this.DocsCollection = [];
     this.PathCollection = [];       
   }
 
   ngOnInit(): void {
+    this.docsService
+    	.fetch()
+    	.subscribe(data => {
+		this.DocsCollection = data;
+    	});
   }
 
   onClickChangeViewIcon(){
